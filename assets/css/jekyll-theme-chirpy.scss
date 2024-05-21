@@ -1,0 +1,145 @@
+---
+---
+
+@import 'main';
+@import 'layout-home';
+@import 'layout-post';
+
+h1 {
+  font-size: 1.75rem;
+}
+
+h2 {
+  font-size: 1.45rem;
+}
+
+.col-12 {
+  width: 100%
+}
+
+.px-lg-3 {
+  padding-left: 1rem;
+}
+
+@media all and (min-width: 768px) {
+  .col-md-5, .col-md-7 {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 849px) {
+  .px-lg-3 {
+    padding-left: 0 !important;
+  }
+}
+
+@media all and (min-width: 850px) {
+  #main-wrapper {
+    margin-left: 0
+  }
+
+  .px-1 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .pb-lg-3 {
+    padding-bottom: 1rem !important;
+  }
+
+  .flex-lg-row {
+    flex-direction: row !important;
+  }
+
+  .justify-content-lg-between {
+    justify-content: space-between !important;
+  }
+
+  .align-items-lg-center {
+    align-items: center !important;
+  }
+}
+
+@media all and (min-width: 992px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media all and (min-width: 992px) and (max-width: 1199px) {
+  #main-wrapper > .container .col-lg-11 {
+    max-width: 100%;
+  }
+}
+
+@media all and (min-width: 1200px) {
+  .container {
+    max-width: 850px !important;
+  }
+}
+
+@media all and (min-width: 1400px) {
+  .px-xxl-5 {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+}
+
+@media all and (min-width: 1650px) {
+  main.col-12, #tail-wrapper {
+    padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
+  }
+
+  #main-wrapper .container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+#main-wrapper {
+  .container {
+    .row {
+      display: block;
+    }
+  }
+}
+
+#topbar {
+  #breadcrumb {
+    span:first-child {
+      text-transform: capitalize;
+    }
+  }
+
+  #topbar-title {
+    width: 100%;
+    text-transform: capitalize;
+  }
+}
+
+#tail-wrapper>:not(script) {
+  margin-top: 2.5rem !important;
+}
+
+.url-with-icon {
+  margin-left: 5px;
+  margin-right: 5px;
+
+  svg {
+    margin-right: 4px;
+    vertical-align: -2px;
+    opacity: 0.7;
+  }
+}
+
+.col-md-5 .preview-img,
+.col-md-5 .preview-img img {
+  border-radius: .625rem .625rem 0 0 !important;
+}
+
+@media (pointer: coarse) {
+  html {
+    margin-right: 0 !important;
+  }
+}

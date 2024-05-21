@@ -1,0 +1,117 @@
+---
+layout: default
+refactor: true
+---
+
+{% include lang.html %}
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="/assets/lib/jquery/jquery.min.js"></script>
+
+<article class="px-1">
+  <header id="post-header">
+    <h1 data-toc-skip>{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="post-desc fw-light mb-4">{{ page.description }}</p>
+    {% endif %}
+
+    <div class="post-meta text-muted">
+      <!-- published date -->
+      {% assign df_strftime = site.data.locales[include.lang].df.post.strftime | default: '%Y년 %m월 %d일' %}
+      <span>{{ page.date | date: df_strftime }} </span>
+
+      {% if page.categories[0] == "awards" %}
+      <div id="post-award">
+        <span class="url-with-icon" style="margin-left: 0;">
+            {% assign icon = page.urls[i][0] %}
+            {% include icons.html icon="award" %}
+            {{ page.tags[0] }}
+          </span>
+      </div>
+      {% endif %}
+
+      <div id="post-url">
+        {% assign len = page.urls.size | minus: 1 %}
+        {% for i in (0..len) %}
+          <span class="url-with-icon" {% if i == 0 %}style="margin-left: 0;"{% endif %}>
+            {% assign icon = page.urls[i][0] %}
+            {% include icons.html icon=icon %}
+            <a href="{{ page.urls[i][2] }}" target="_blank">{{ page.urls[i][1] }}</a>
+          </span>
+          {% if i != len %}
+          ·
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      {% if page.tags.size > 0 %}
+      <div id="tech-stack">
+        <div>
+          {% for tag in page.tags %}
+            {% include tech-stack.html tag=tag style="flat" %}
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% capture src %}src="{{ page.image.path | default: page.image }}"{% endcapture %}
+      {% capture class %}class="preview-img{% if page.image.no_bg %}{{ ' no-bg' }}{% endif %}"{% endcapture %}
+      {% capture alt %}alt="{{ page.image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
+      {% if page.image.lqip %}
+        {%- capture lqip -%}lqip="{{ page.image.lqip }}"{%- endcapture -%}
+      {% endif %}
+
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          {% for photo in page.gallery %}
+            <div class="mt-3 mb-3 swiper-slide {{ page.ratio }}">
+              <img src="{{ photo }}" {{ class }} alt="image" {{ lqip }} onload="load(this)">
+            </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </header>
+  <div class="content">
+    {{ content }}
+  </div>
+  <!-- div.post-tail-wrapper -->
+</article>
+
+<script>
+  function load(e) {
+    if ($(e).width() / $(e).height() >= 1) {
+      $(e).addClass('landscape');
+    } else {
+      $(e).addClass('portrait');
+    }
+  }
+
+  $(window).on('load',function() {
+    $('#tech-stack div a').each(function () {
+      $('#tech-stack div').append($(this).children('img'));
+      $(this).remove();
+    });
+  });
+
+  new Swiper('.swiper', {
+    direction: 'horizontal',
+    speed: 500,
+    loop: true,
+    spaceBetween: 25,
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>
