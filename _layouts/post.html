@@ -27,7 +27,6 @@ refactor: true
       {% if page.categories[0] == "awards" %}
       <div id="post-award">
         <span class="url-with-icon" style="margin-left: 0;">
-            {% assign icon = page.urls[i][0] %}
             {% include icons.html icon="award" %}
             {{ page.tags[0] }}
           </span>
@@ -38,9 +37,9 @@ refactor: true
         {% assign len = page.urls.size | minus: 1 %}
         {% for i in (0..len) %}
           <span class="url-with-icon" {% if i == 0 %}style="margin-left: 0;"{% endif %}>
-            {% assign icon = page.urls[i][0] %}
+            {% assign icon = page.urls[i]["type"] %}
             {% include icons.html icon=icon %}
-            <a href="{{ page.urls[i][2] }}" target="_blank">{{ page.urls[i][1] }}</a>
+            <a href="{{ page.urls[i]["url"] }}" {% if icon != "link" %}target="_blank"{% endif %}>{{ page.urls[i]["name"] }}</a>
           </span>
           {% if i != len %}
           ·
