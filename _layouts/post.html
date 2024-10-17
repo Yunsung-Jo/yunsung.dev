@@ -24,10 +24,10 @@ refactor: true
       {% assign df_strftime = site.data.locales[include.lang].df.post.strftime | default: '%Y년 %m월 %d일' %}
       <span>{{ page.date | date: df_strftime }} </span>
 
-      {% if page.categories[0] == "awards" %}
-      <div id="post-award">
+      {% if page.type == "prize" %}
+      <div id="post-prize">
         <span class="url-with-icon" style="margin-left: 0;">
-            {% include icons.html icon="award" %}
+            {% include icons.html icon="prize" %}
             {{ page.tags[0] }}
           </span>
       </div>
@@ -66,11 +66,17 @@ refactor: true
 
       <div class="swiper">
         <div class="swiper-wrapper">
-          {% for photo in page.gallery %}
-            <div class="mt-3 mb-3 swiper-slide {{ page.ratio }}">
-              <img src="{{ photo }}" {{ class }} alt="image" {{ lqip }} onload="load(this)">
+          {% if page.type == "project" %}
+            {% for photo in page.gallery %}
+              <div class="mt-3 mb-3 swiper-slide">
+                <img src="{{ photo }}" {{ class }} alt="image" {{ lqip }} onload="load(this)">
+              </div>
+            {% endfor %}
+          {% else %}
+            <div class="mt-3 mb-3 swiper-slide ratio-4x3">
+              <img src="{{ page.image.path }}" {{ class }} alt="image" {{ lqip }} onload="load(this)">
             </div>
-          {% endfor %}
+          {% endif %}
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
