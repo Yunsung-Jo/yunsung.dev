@@ -17,7 +17,7 @@ $radius: .25rem;
   }
 }
 
-#about {
+#profile {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -37,13 +37,12 @@ $radius: .25rem;
     }
 
     h1 {
-      margin-top: 2rem !important;
+      margin-top: 1.5rem !important;
     }
   }
 
   #info {
-    width: 350px;
-    margin-left: 50px;
+    margin-left: 42px;
   }
 
   div #row {
@@ -53,24 +52,31 @@ $radius: .25rem;
 
     h1 {
       margin-top: 0;
+      margin-bottom: .7rem;
     }
 
     h3 {
       margin-top: 0;
-      margin-bottom: 1.6rem;
+      margin-bottom: 1rem;
       margin-left: .5rem;
       color: var(--text-muted-color);
     }
   }
 
   .preview-img {
-    width: 250px;
-    height: 250px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
   }
 
   .shimmer::before {
     content: none;
+  }
+}
+
+#intro {
+  ul {
+    padding-left: 1.2rem;
   }
 }
 
@@ -103,6 +109,9 @@ $radius: .25rem;
   flex-direction: row;
   flex-wrap: wrap;
   gap: $gab;
+  margin-top: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 
   .card-wrapper {
     margin-bottom: 0 !important;
@@ -127,7 +136,7 @@ $radius: .25rem;
   }
 }
 
-.projects {
+.card-project {
   font-size: 0;
 
   .me-auto {
@@ -148,20 +157,24 @@ $radius: .25rem;
   }
 }
 
-#awards {
+#prize {
   .preview-img img {
     object-position: 80% 20%;
   }
 }
 
 #activity {
-  div {
+  div:nth-of-type(1) {
+    padding-top: .3rem;
+  }
+
+  div:not(:nth-of-type(1)) {
     padding-top: 1rem;
   }
 
-  h3 {
+  h4 {
     margin-top: 0;
-    margin-bottom: .8rem;
+    margin-bottom: .7rem;
   }
 
   h5 {
@@ -178,11 +191,7 @@ $radius: .25rem;
     padding-left: 1.2rem;
   }
 
-  li {
-    margin-bottom: .8rem;
-  }
-
-  .card-awards {
+  .card-prize {
     margin-bottom: .8rem !important;
   }
 }
@@ -190,4 +199,17 @@ $radius: .25rem;
 h1+.post-meta time {
   font-weight: normal;
   font-size: .9rem;
+}
+
+ul li {
+  margin-bottom: .7rem;
+}
+
+#info,
+#activity {
+  a:hover {
+    color: #d2603a !important;
+    border-bottom: 1px solid #d2603a;
+    text-decoration: none;
+  }
 }

@@ -5,8 +5,12 @@
 @import 'layout-home';
 @import 'layout-post';
 
-h1 {
-  font-size: 1.6rem;
+h1, h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.3rem;
 }
 
 .col-12 {
@@ -14,10 +18,15 @@ h1 {
 }
 
 .px-lg-3 {
-  padding-left: 1rem;
+  padding-left: 3.5rem;
 }
 
 @media all and (min-width: 768px) {
+  .px-md-4 {
+    padding-right: 4rem !important;
+    padding-left: 4rem !important;
+  }
+
   .col-md-5, .col-md-7 {
     width: 100%;
   }
@@ -60,6 +69,10 @@ h1 {
   .container {
     max-width: 720px;
   }
+
+  .px-lg-3 {
+    padding-left: 3.5rem !important;
+  }
 }
 
 @media all and (min-width: 992px) and (max-width: 1199px) {
@@ -69,6 +82,15 @@ h1 {
 }
 
 @media all and (min-width: 1200px) {
+  .px-md-4 {
+    padding-right: 3rem !important;
+    padding-left: 3rem !important;
+  }
+
+  .px-lg-3 {
+    padding-left: 2.5rem !important;
+  }
+
   .container {
     max-width: 850px !important;
   }
@@ -83,8 +105,8 @@ h1 {
 
 @media all and (min-width: 1650px) {
   main.col-12, #tail-wrapper {
-    padding-right: 1.5rem !important;
-    padding-left: 1.5rem !important;
+    padding-right: 3rem !important;
+    padding-left: 3rem !important;
   }
 
   #main-wrapper .container {
