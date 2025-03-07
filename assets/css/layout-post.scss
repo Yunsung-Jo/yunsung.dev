@@ -12,6 +12,10 @@
     min-height: 250px;
   }
 
+  .preview-img:not(.no-bg) {
+    background: none;
+  }
+
   .ratio-4x3 a {
     aspect-ratio: 4 / 3;
   }
@@ -31,7 +35,7 @@
 .swiper-button-next {
   opacity: 0.5;
   border-radius: 50%;
-  width: 3rem !important;
+  width: 2rem !important;
   height: 3rem !important;
   color: #868686 !important;
 }
@@ -83,13 +87,21 @@
 
 .content {
   margin-top: 0;
-  font-size: 1rem !important;
+  font-size: 1.1rem !important;
+
+  ul li {
+    font-size: 1.1rem !important;
+  }
 
   hr {
     opacity: .5;
   }
+
+  code.highlighter-rouge {
+    font-size: 1.04rem;
+  }
 }
 
 .desc {
-  font-size: .95rem !important;
+  font-size: 1.01rem !important;
 }

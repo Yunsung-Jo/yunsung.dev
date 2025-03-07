@@ -42,7 +42,7 @@ $radius: .25rem;
   }
 
   #info {
-    margin-left: 42px;
+    margin-left: 40px;
   }
 
   div #row {
@@ -64,9 +64,10 @@ $radius: .25rem;
   }
 
   .preview-img {
-    width: 140px;
-    height: 140px;
+    width: 135px;
+    height: 135px;
     border-radius: 50%;
+    border: 2px solid var(--text-color);
   }
 
   .shimmer::before {
@@ -165,6 +166,20 @@ $radius: .25rem;
   .preview-img img {
     object-position: 82% 18%;
   }
+
+  .me-auto {
+    color: var(--text-muted-hightlight-color);
+    font-size: .94rem;
+
+    i {
+      font-size: .85rem;
+    }
+    time {
+      color: var(--text-muted-color);
+      font-size: .87rem;
+      font-weight: normal;
+    }
+  }
 }
 
 #activity {
@@ -173,7 +188,7 @@ $radius: .25rem;
   }
 
   div:not(:nth-of-type(1)) {
-    padding-top: 1rem;
+    padding-top: 1.2rem;
   }
 
   h4 {
@@ -200,13 +215,9 @@ $radius: .25rem;
   }
 }
 
-h1+.post-meta time {
-  font-weight: normal;
-  font-size: .9rem;
-}
-
 ul li {
-  margin-bottom: .7rem;
+  margin-bottom: .65rem;
+  font-size: 1.1rem;
 }
 
 #info,

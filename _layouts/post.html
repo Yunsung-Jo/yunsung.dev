@@ -26,7 +26,7 @@ refactor: true
 
       {% if page.type == "prize" %}
       <div id="post-prize">
-        <span class="url-with-icon" style="margin-left: 0;">
+        <span class="url-with-icon" style="margin-left: 0; color: var(--text-muted-hightlight-color);">
             {% include icons.html icon="prize" %}
             {{ page.tags[0] }}
           </span>
@@ -47,7 +47,7 @@ refactor: true
         {% endfor %}
       </div>
 
-      {% if page.tags.size > 0 %}
+      {% if page.type == "project" %}
       <div id="tech-stack">
         <div>
           {% for tag in page.tags %}

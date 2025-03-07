@@ -1,15 +1,30 @@
 ---
 ---
 
+@import url(//cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css);
 @import 'main';
 @import 'layout-home';
 @import 'layout-post';
+
+* {
+  word-break: keep-all;
+  font-family: 'Pretendard', 'sans-serif' !important;
+}
+
+i {
+  font-family: "Font Awesome 6 Free" !important
+}
 
 h1, h2 {
   font-size: 1.5rem;
 }
 
 h3 {
+  margin-top: 2rem !important;
+  font-size: 1.3rem;
+}
+
+h4 {
   font-size: 1.3rem;
 }
 
@@ -35,6 +50,10 @@ h3 {
 @media all and (max-width: 849px) {
   .px-lg-3 {
     padding-left: 0 !important;
+  }
+
+  #topbar, #main-wrapper>.container {
+    max-width: 720px;
   }
 }
 
