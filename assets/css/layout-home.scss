@@ -82,26 +82,23 @@ $radius: .25rem;
 }
 
 #tech-stack {
-  div {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
+  table {
+    font-size: 1.1rem;
   }
 
-  img,
-  .preview-img {
-    display: inline-block;
-    width: auto !important;
-    aspect-ratio: auto !important;
-    border-radius: $radius !important;
-
-    img {
-      border-radius: $radius !important;
-    }
+  td:first-child {
+    width: 8rem !important;
   }
 
-  .shimmer::before {
-    content: none;
+  tr:last-child {
+    border-bottom: none !important;
+  }
+
+  .table-wrapper {
+    border: 1px solid var(--tb-border-color);
+    border-radius: .625rem;
+    width: 100%;
+    margin-bottom: 0;
   }
 }
 
