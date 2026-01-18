@@ -21,19 +21,17 @@ refactor: true
 
     <div class="post-meta text-muted">
       <!-- published date -->
-      {% assign df_strftime = site.data.locales[include.lang].df.post.strftime | default: '%Y년 %m월 %d일' %}
-      <span>{{ page.date | date: df_strftime }} </span>
+      {% assign df_strftime = site.data.locales[include.lang].df.post.strftime | default: '%Y. %m. %d.' %}
+      <span>{% if page.sdate %}{{ page.sdate | date: df_strftime }} ~ {% endif %}{{ page.date | date: df_strftime }}</span>
 
+      {% if page.type == "prize" %}
       <div class="icon-div">
         <span class="url-with-icon" style="margin-left: 0; color: var(--text-muted-hightlight-color);">
-          {% if page.type == "prize" %}
-            {% include icons.html icon="prize" %}
-          {% else %}
-            {% include icons.html icon="code" %}
-          {% endif %}
+          {% include icons.html icon="prize" %}
           {{ page.tags | join: ", " }}
         </span>
       </div>
+      {% endif %}
 
       <div class="icon-div">
         {% assign len = page.urls.size | minus: 1 %}
