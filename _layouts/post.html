@@ -58,7 +58,7 @@ refactor: true
         <div class="swiper-wrapper">
           {% if page.type == "project" %}
             {% for photo in page.gallery %}
-              <div class="mt-3 mb-3 swiper-slide">
+              <div class="mt-3 mb-3 swiper-slide {% if page.ratio4x3 %}ratio-4x3{% endif %}">
                 <img src="{{ photo }}" {{ class }} alt="image" {{ lqip }} onload="load(this)">
               </div>
             {% endfor %}
