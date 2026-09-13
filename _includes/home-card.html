@@ -1,0 +1,51 @@
+{% assign card_post = include.post %}
+{% assign card_body_col = '12' %}
+
+<article class="card-wrapper card">
+  <a href="{{ card_post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
+    {% if card_post.image %}
+      {% assign card_src = card_post.image.path | default: card_post.image %}
+      {% unless card_src contains '//' %}
+        {% assign card_src = card_post.img_path | append: '/' | append: card_src | replace: '//', '/' %}
+      {% endunless %}
+      {% assign card_alt = card_post.image.alt | xml_escape | default: 'Preview Image' %}
+      {% assign card_lqip = null %}
+      {% if card_post.image.lqip %}
+        {% capture card_lqip %}lqip="{{ card_post.image.lqip }}"{% endcapture %}
+      {% endif %}
+      <div class="col-md-5">
+        <img src="{{ card_src }}" alt="{{ card_alt }}" {{ card_lqip }}>
+      </div>
+      {% assign card_body_col = '7' %}
+    {% endif %}
+
+    <div class="col-md-{{ card_body_col }}">
+      <div class="card-body d-flex flex-column">
+        <h1 class="card-title {% if card_post.type == 'prize' %}card-prize {% endif %}my-2 mt-md-0">{{ card_post.title }}</h1>
+        {% if card_post.type == 'project' %}
+          <div class="card-text content desc mt-0 mb-3">
+            <p>{{ card_post.desc }}</p>
+          </div>
+          <div class="post-meta flex-grow-1 d-flex align-items-end card-project">
+            <div class="me-auto">
+              {% for tag in card_post.tags %}
+                {% include tech-stack.html tag=tag style="flat" %}
+              {% endfor %}
+            </div>
+          </div>
+        {% else %}
+          <div class="post-meta flex-grow-1 d-flex align-items-end">
+            <div class="me-auto">
+              <i class="far fa-calendar fa-fw me-1"></i>
+              {% include datetime.html date=card_post.date lang=include.lang %}
+              <i class="far fa-solid fa-trophy fa-fw me-1"></i>
+              {% for tag in card_post.tags %}
+                {{ tag }}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </a>
+</article>

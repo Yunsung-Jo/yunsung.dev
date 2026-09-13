@@ -34,22 +34,19 @@ refactor: true
       {% endif %}
 
       <div class="icon-div">
-        {% assign len = page.urls.size | minus: 1 %}
-        {% for i in (0..len) %}
-          <span class="url-with-icon" {% if i == 0 %}style="margin-left: 0;"{% endif %}>
-            {% assign icon = page.urls[i]["type"] %}
+        {% for page_url in page.urls %}
+          <span class="url-with-icon" {% if forloop.first %}style="margin-left: 0;"{% endif %}>
+            {% assign icon = page_url.type %}
             {% include icons.html icon=icon %}
-            <a href="{{ page.urls[i]["url"] }}" {% if icon != "link" %}target="_blank"{% endif %}>{{ page.urls[i]["name"] }}</a>
+            <a href="{{ page_url.url }}" {% if icon != "link" %}target="_blank"{% endif %}>{{ page_url.name }}</a>
           </span>
-          {% if i != len %}
+          {% unless forloop.last %}
           ·
-          {% endif %}
+          {% endunless %}
         {% endfor %}
       </div>
 
-      {% capture src %}src="{{ page.image.path | default: page.image }}"{% endcapture %}
       {% capture class %}class="preview-img{% if page.image.no_bg %}{{ ' no-bg' }}{% endif %}"{% endcapture %}
-      {% capture alt %}alt="{{ page.image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
       {% if page.image.lqip %}
         {%- capture lqip -%}lqip="{{ page.image.lqip }}"{%- endcapture -%}
       {% endif %}
