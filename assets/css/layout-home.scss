@@ -82,23 +82,23 @@ $radius: .25rem;
 }
 
 #tech-stack {
-  table {
-    font-size: 1.1rem;
+  .tech-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .55rem;
   }
 
-  td:first-child {
-    width: 8rem !important;
-  }
-
-  tr:last-child {
-    border-bottom: none !important;
-  }
-
-  .table-wrapper {
+  .tech-chip {
+    display: inline-block;
+    padding: .35rem .75rem;
     border: 1px solid var(--tb-border-color);
-    border-radius: .625rem;
-    width: 100%;
-    margin-bottom: 0;
+    border-radius: .4rem;
+    background: rgba(127, 127, 127, .08);
+    color: var(--text-color);
+    font-size: .95rem;
+    font-weight: 500;
+    line-height: 1.4;
+    white-space: nowrap;
   }
 }
 
