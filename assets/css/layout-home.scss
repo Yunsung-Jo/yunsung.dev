@@ -179,6 +179,38 @@ $radius: .25rem;
   }
 }
 
+#certifications {
+  .certification-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: .25rem 1rem;
+    padding: .65rem 0;
+    margin: 0;
+    border-bottom: 1px solid var(--tb-border-color);
+    font-size: 1rem;
+  }
+
+  .certification-meta {
+    color: var(--text-muted-color);
+    font-size: .9rem;
+    white-space: nowrap;
+  }
+
+  @media all and (max-width: 600px) {
+    li {
+      flex-direction: column;
+      gap: .15rem;
+    }
+  }
+}
+
 #activity {
   div:nth-of-type(1) {
     padding-top: .3rem;
