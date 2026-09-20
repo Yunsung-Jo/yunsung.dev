@@ -16,7 +16,7 @@ layout: compress
 <html lang="{{ page.lang | default: site.alt_lang | default: site.lang }}" {{ prefer_mode }}>
   {% include head.html %}
 
-  <body>
+  <body{% if page.type %} class="page-{{ page.type }}"{% endif %}>
     {% include sidebar.html lang=lang %}
 
   <div id="main-wrapper" class="d-flex justify-content-center">
@@ -31,6 +31,12 @@ layout: compress
             {{ content }}
           {% endif %}
         </main>
+
+        {% if page.type == 'project' and page.toc %}
+          <aside aria-label="Table of Contents" id="panel-wrapper" class="col-xl-3 ps-2 mb-5 text-muted">
+            {% include toc.html lang=lang %}
+          </aside>
+        {% endif %}
       </div>
 
       <div class="row">

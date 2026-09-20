@@ -164,7 +164,7 @@ defaults:
     values:
       layout: post
       comments: false
-      toc: true
+      toc: false
       permalink: /prize/:title/
       type: prize
   - scope:
