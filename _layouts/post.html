@@ -22,7 +22,9 @@ refactor: true
     <div class="post-meta text-muted">
       <!-- published date -->
       {% assign df_strftime = site.data.locales[include.lang].df.post.strftime | default: '%Y. %m. %d.' %}
-      <span>{% if page.sdate %}{{ page.sdate | date: df_strftime }} ~ {% endif %}{{ page.date | date: df_strftime }}</span>
+      {% unless page.type == "project" %}
+        <span>{% if page.sdate %}{{ page.sdate | date: df_strftime }} ~ {% endif %}{{ page.date | date: df_strftime }}</span>
+      {% endunless %}
 
       {% if page.type == "prize" %}
       <div class="icon-div">

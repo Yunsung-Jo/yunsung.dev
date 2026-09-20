@@ -17,6 +17,11 @@
         <img src="{{ card_src }}" alt="{{ card_alt }}" {{ card_lqip }}>
       </div>
       {% assign card_body_col = '7' %}
+    {% elsif card_post.type == 'project' %}
+      <div class="col-md-5 card-title-placeholder">
+        <h1>{{ card_post.title }}</h1>
+      </div>
+      {% assign card_body_col = '7' %}
     {% endif %}
 
     <div class="col-md-{{ card_body_col }}">
