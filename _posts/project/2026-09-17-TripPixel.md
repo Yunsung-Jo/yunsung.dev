@@ -3,6 +3,8 @@ title: TripPixel
 desc: 영상에서 장소 후보를 찾고 일정을 함께 계획하는 여행 서비스
 date: 2026-09-17
 tags: [Spring Boot]
+image:
+  path: /assets/img/posts/project/trippixel/thumbnail.webp
 mermaid: true
 urls:
   -
