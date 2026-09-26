@@ -110,27 +110,6 @@ $radius: .25rem;
   }
 
   .card {
-    .card-title-placeholder {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      aspect-ratio: 40 / 21;
-      padding: 1rem;
-      border-radius: .625rem .625rem 0 0;
-      background: #fff;
-      color: #111;
-      text-align: center;
-
-      h1 {
-        margin: 0;
-        color: #111;
-        font-size: 1.35rem;
-        font-weight: 700;
-        line-height: 1.35;
-        word-break: keep-all;
-      }
-    }
-
     .card-body {
       .card-title {
         display: inline;
@@ -147,12 +126,6 @@ $radius: .25rem;
       .mb-3 {
         margin-bottom: .5rem !important;
       }
-    }
-  }
-
-  @media all and (min-width: 768px) {
-    .card-title-placeholder {
-      border-radius: 0 .625rem .625rem 0;
     }
   }
 

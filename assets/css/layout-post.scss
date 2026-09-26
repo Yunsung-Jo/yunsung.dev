@@ -33,31 +33,44 @@
 
 .swiper-button-prev,
 .swiper-button-next {
-  opacity: 0.5;
+  opacity: .85;
   border-radius: 50%;
-  width: 2rem !important;
-  height: 3rem !important;
-  color: #868686 !important;
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  color: #fff !important;
+  background: rgba(0, 0, 0, .55);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
 }
 
 .swiper-button-prev:after,
 .swiper-button-next:after {
-  font-size: 1.5rem !important;
+  font-size: 1.1rem !important;
   font-weight: 600 !important;
 }
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
   opacity: 1;
+  background: rgba(0, 0, 0, .7);
 }
 
 .swiper-pagination {
-  margin-bottom: 1.5rem;
+  left: 50% !important;
+  right: auto !important;
+  bottom: 1.5rem !important;
+  width: max-content !important;
+  padding: .3rem .5rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, .45);
+  display: flex;
+  align-items: center;
+  line-height: 0;
+  transform: translateX(-50%) !important;
 }
 
 .swiper-pagination-bullet {
-  opacity: .25 !important;
-  background: #868686 !important;
+  opacity: .55 !important;
+  background: #fff !important;
 }
 
 .swiper-pagination-bullet-active {
